@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.example.org/MessageServices"
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.example.org/MessageServices">
+
+
+	<element name="messageRQ">
+		<complexType>
+			<sequence>
+				<element ref="tns:requestMessage"></element>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="messageRS">
+		<complexType>
+			<sequence>
+				<element ref="tns:responseMessage"></element>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="requestMessage" type="tns:requestMessageType"></element>
+	<element name="responseMessage" type="tns:responseMessageType"></element>
+
+	<complexType name="requestMessageType">
+		<sequence>
+			<element name="header" type="tns:requestHeaderType"
+				minOccurs="1" maxOccurs="1">
+			</element>
+			<element name="body" type="tns:requestBodyType" minOccurs="1"
+				maxOccurs="1">
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="responseMessageType">
+		<sequence>
+			<element name="header" type="tns:responseHeaderType"
+				minOccurs="1" maxOccurs="1">
+			</element>
+			<element name="body" type="tns:responseBodyType" minOccurs="1"
+				maxOccurs="1">
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="requestHeaderType">
+		<sequence>
+			<element name="messageID" type="string" minOccurs="1"
+				maxOccurs="1">
+			</element>
+			<element name="requestDate" type="string" minOccurs="1"
+				maxOccurs="1">
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="requestBodyType">
+		<sequence>
+			<element name="employed" type="tns:EmployedType"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="EmployedType">
+		<sequence>
+			<element name="id" type="string" minOccurs="1" maxOccurs="1">
+			</element>
+			<element name="fullName" type="string" minOccurs="1"
+				maxOccurs="1">
+			</element>
+			<element name="birthDate" type="string" minOccurs="1"
+				maxOccurs="1">
+			</element>
+			<element name="country" type="string" minOccurs="1"
+				maxOccurs="1">
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="responseHeaderType">
+		<sequence>
+			<element name="messageID" type="string" minOccurs="1"
+				maxOccurs="1">
+			</element>
+			<element name="status" type="string" minOccurs="1" maxOccurs="1">
+			</element>
+			<element name="responseDate" type="string" minOccurs="1"
+				maxOccurs="1">
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="responseBodyType">
+		<sequence>
+			<element name="ticket" type="string" minOccurs="1" maxOccurs="1">
+			</element>
+		</sequence>
+	</complexType>
+
+
+</schema>
