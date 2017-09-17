@@ -1,2 +1,2 @@
 # MDW-KUIPER
-Proyecto Kuiper
+Kuiper Project
