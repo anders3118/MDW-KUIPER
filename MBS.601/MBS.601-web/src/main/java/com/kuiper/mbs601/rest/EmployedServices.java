@@ -22,4 +22,12 @@ public class EmployedServices {
 	public MessageRS registreEmployed(MessageRQ messageRQ){
 		return null;
 	}
+	
+	@Path("/hello")
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public String hello(String name){
+		return "Hello " + name + "!";
+	}
 }
